@@ -26,7 +26,7 @@ class MessagesController < ApplicationController
       to_number: ENV["twilio_number"],
       body: inbound_message_params[:Body]
     )
-    render nothing: true
+    head :ok
   end
 
   private

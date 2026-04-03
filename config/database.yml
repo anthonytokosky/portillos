@@ -1,38 +1,17 @@
 development:
-  adapter: mysql2
-  encoding: utf8
-  strict: false
-  reconnect: false
+  adapter: postgresql
+  encoding: unicode
   database: portillos_development
   pool: 5
-  username: root
-  password: 
-  host: localhost
-  port: 3306
 
 test:
-  adapter: mysql2
-  encoding: utf8
-  reconnect: false
+  adapter: postgresql
+  encoding: unicode
   database: portillos_test
   pool: 5
-  username: root
-  password: 
-  host: localhost
-  port: 3306
 
-# staging:
-#   adapter: mysql2
-#   encoding: utf8
-#   database: emqb_stating
-#   username: root
-#   password:
-#   socket: /var/run/mysqld/mysqld.sock
-#
-# pre_production:
-#   adapter: mysql2
-#   encoding: utf8
-#   database: emqb_pre_production
-#   username: root
-#   password:
-#   socket: /var/run/mysqld/mysqld.sock
+production:
+  adapter: postgresql
+  encoding: unicode
+  pool: <%= ENV.fetch('RAILS_MAX_THREADS', 5) %>
+  url: <%= ENV['DATABASE_URL'] %>
